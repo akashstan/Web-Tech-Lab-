@@ -1,0 +1,323 @@
+1a. 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ex 1a HTML Basics</title>
+</head>
+
+<body>
+    Welcome to HTML Programming
+</body>
+
+</html>
+
+1b.
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ex 1b Empty Element Example</title>
+</head>
+
+<body>
+
+    <h2>Welcome to Web Development</h2>
+
+    <br>
+
+    <p>This is my first HTML program.</p>
+
+</body>
+
+</html>
+
+1c.
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ex 1c Heading Tags Example</title>
+</head>
+
+<body>
+
+    <h1>HTML Heading Level 1</h1>
+    <h2>HTML Heading Level 2</h2>
+    <h3>HTML Heading Level 3</h3>
+    <h4>HTML Heading Level 4</h4>
+    <h5>HTML Heading Level 5</h5>
+    <h6>HTML Heading Level 6</h6>
+
+</body>
+
+</html>
+
+1d.
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ex 1d Break Tag Example</title>
+</head>
+
+<body>
+
+    <h2>College Address</h2>
+
+    <p>
+        S A Akash <br>
+        Karunya University <br>
+        Coimbatore <br>
+        Tamil Nadu
+    </p>
+
+</body>
+
+</html>
+
+1e.
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ex 1e End Tags Example</title>
+</head>
+
+<body>
+
+    <h1>Learning HTML with motive</h1>
+
+    <p>
+        Success is not final, failure is not fatal:<br>
+        It is the courage to continue that counts.
+    </p>
+
+</body>
+
+</html>
+
+1f.
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ex 1f HTML Attributes Demo</title>
+</head>
+
+<body>
+
+    <h1>HTML Attributes Demo</h1>
+
+    <img src="C:\Users\DELL\Downloads\demo.jpg"
+         alt="HTML Image"
+         width="700"
+         height="500">
+
+    <br><br>
+
+    <a href="https://share.google/3iLAu40w15KeLFeKM">
+        learn HTML
+    </a>
+
+</body>
+
+</html>
+
+1g.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infosys Employee Training Portal</title>
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f3f6fa;
+}
+
+/* Header */
+header{
+    background:#0d5aa7;
+    color:white;
+    padding:20px;
+    display:flex;
+    align-items:center;
+}
+
+.logo{
+    width:120px;
+    height:60px;
+    background:white;
+    color:#0d5aa7;
+    font-size:26px;
+    font-weight:bold;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:5px;
+    margin-right:30px;
+}
+
+.header-text h1{
+    font-size:24px;
+}
+
+.header-text p{
+    margin-top:8px;
+    color:#d9e8ff;
+}
+
+/* Cards */
+.card{
+    width:95%;
+    margin:18px auto;
+    background:white;
+    padding:22px;
+    border-radius:8px;
+    box-shadow:0 0 8px rgba(0,0,0,0.15);
+}
+
+.card h2{
+    color:#0d5aa7;
+    margin-bottom:12px;
+}
+
+.card p{
+    line-height:1.7;
+    margin-bottom:15px;
+}
+
+/* Image */
+.training-img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+/* Course List */
+.course-list{
+    list-style:none;
+}
+
+.course-list li{
+    margin:18px 0;
+    font-size:18px;
+}
+
+.course-list i{
+    color:#0d5aa7;
+    width:40px;
+    font-size:22px;
+}
+
+/* Explore Section */
+.explore{
+    text-align:center;
+}
+
+.explore p{
+    margin:15px 0 25px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    color:white;
+    padding:15px 35px;
+    margin:10px 20px;
+    border-radius:6px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.blue{
+    background:#0d5aa7;
+}
+
+.green{
+    background:#2ca24d;
+}
+
+/* Footer */
+footer{
+    background:#1f2630;
+    color:white;
+    text-align:center;
+    padding:18px;
+    margin-top:20px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <div class="logo">Infosys</div>
+
+    <div class="header-text">
+        <h1>Infosys Employee Training Portal</h1>
+        <p>Learn, improve and build skills for the digital future.</p>
+    </div>
+</header>
+
+<div class="card">
+    <h2>Digital Skills Development Program</h2>
+
+    <p>
+        Infosys provides technical training programs to help employees
+        develop skills in artificial intelligence, cloud computing,
+        cybersecurity, data science and software development.
+    </p>
+
+    <img src="training.jpg" class="training-img" alt="Training">
+</div>
+
+<div class="card">
+    <h2>Available Training Courses</h2>
+
+    <ul class="course-list">
+        <li><i class="fas fa-brain"></i> Artificial Intelligence and Machine Learning</li>
+        <li><i class="fas fa-cloud"></i> Cloud Computing</li>
+        <li><i class="fas fa-lock"></i> Cybersecurity</li>
+        <li><i class="fas fa-code"></i> Full-Stack Web Development</li>
+        <li><i class="fas fa-chart-bar"></i> Data Science</li>
+    </ul>
+</div>
+
+<div class="card explore">
+    <h2>Explore Infosys</h2>
+
+    <p>
+        Visit the official Infosys website to learn more about the company
+        and its services.
+    </p>
+
+    <a href="https://www.infosys.com" class="btn blue">
+        <i class="fas fa-globe"></i> Visit Infosys Website
+    </a>
+
+    <a href="https://www.infosys.com/careers" class="btn green">
+        <i class="fas fa-briefcase"></i> Explore Infosys Careers
+    </a>
+</div>
+
+<footer>
+    © 2026 Infosys Training Portal — HTML Practice Program
+</footer>
+
+</body>
+</html>
