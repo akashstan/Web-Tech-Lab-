@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Profile</title>
+</head>
+
+<body bgcolor="lightblue">
+
+<!-- Heading -->
+<div align="center">
+    <h1>Student Profile</h1>
+    <h2>Karunya Institute of Technology and Sciences</h2>
+
+    <img src="Logo.jpg" alt="Logo" width="120" height="120">
+
+    <p>
+        <a href="https://www.karunya.edu" target="_blank">
+            Visit Karunya Website
+        </a>
+    </p>
+</div>
+
+<hr>
+
+<!-- Table -->
+<h2>Courses Offered</h2>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Course</th>
+        <th>Status</th>
+    </tr>
+
+    <tr>
+        <td>Java</td>
+        <td>Completed</td>
+    </tr>
+
+    <tr>
+        <td>C Programming</td>
+        <td>Completed</td>
+    </tr>
+
+    <tr>
+        <td>PHP</td>
+        <td>Learning</td>
+    </tr>
+
+    <tr>
+        <td>JavaScript</td>
+        <td>Learning</td>
+    </tr>
+</table>
+
+<br>
+
+<h3>Course Progress</h3>
+
+<progress value="75" max="100"></progress>
+
+<hr>
+
+<!-- Form -->
+
+<form action="#" method="post">
+
+<fieldset>
+
+<legend><b>Personal Information</b></legend>
+
+<label>Username :</label>
+<input type="text" name="username"><br><br>
+
+<label>Password :</label>
+<input type="password" name="password"><br><br>
+
+<label>Register Number :</label>
+<input type="text"><br><br>
+
+<label>Age :</label>
+<input type="number" min="18" max="60"><br><br>
+
+<label>Gender :</label>
+
+<input type="radio" name="gender"> Male
+<input type="radio" name="gender"> Female
+
+<br><br>
+
+<label>Date of Birth :</label>
+<input type="date"><br><br>
+
+<label>Email :</label>
+<input type="email"><br><br>
+
+<label>Phone :</label>
+<input type="tel"><br><br>
+
+<label>Website :</label>
+<input type="url"><br><br>
+
+<label>Search :</label>
+<input type="search"><br><br>
+
+<label>Favorite Color :</label>
+<input type="color"><br><br>
+
+<label>Month :</label>
+<input type="month"><br><br>
+
+<label>Week :</label>
+<input type="week"><br><br>
+
+<label>Time :</label>
+<input type="time"><br><br>
+
+<label>Date & Time :</label>
+<input type="datetime-local"><br><br>
+
+<label>Range :</label>
+<input type="range"><br><br>
+
+<label>Profile Photo :</label>
+<input type="file"><br><br>
+
+<label>Address :</label><br>
+
+<textarea rows="4" cols="40"></textarea>
+
+<br><br>
+
+<label>State :</label>
+
+<select>
+    <option>Select</option>
+    <option>Tamil Nadu</option>
+    <option>Kerala</option>
+    <option>Karnataka</option>
+    <option>Andhra Pradesh</option>
+</select>
+
+<br><br>
+
+<input type="hidden" value="Student">
+
+<input type="button" value="Click">
+
+<input type="reset" value="Reset">
+
+<input type="submit" value="Submit">
+
+</fieldset>
+
+</form>
+
+<hr>
+
+<!-- Image -->
+
+<h2>Student Photo</h2>
+
+<img src="Photo.jpeg" width="350" height="350" alt="Student">
+
+<hr>
+
+<!-- Audio -->
+
+<h2>Audio</h2>
+
+<audio controls>
+    <source src="Audio.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+</audio>
+
+<hr>
+
+<!-- Video -->
+
+<h2>Video</h2>
+
+<video width="400" controls>
+    <source src="Video.mp4" type="video/mp4">
+    Your browser does not support video.
+</video>
+
+<hr>
+
+<!-- Embed -->
+
+<h2>Karunya University Website</h2>
+
+<embed src="Karunya University Website.html" width="800" height="600">
+
+<hr>
+
+
+<p align="center">
+© 2026 - URK24CS1166 - Web Technology Lab
+</p>
+
+</body>
+</html>
+
