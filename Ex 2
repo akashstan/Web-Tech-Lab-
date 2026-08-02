@@ -2,203 +2,568 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Student Profile</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #eaf4ff;
+        }
+
+        header {
+            background-color: #123b63;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #2f6f9f;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 85%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #2f6f9f;
+        }
+
+        h2 {
+            color: #123b63;
+            border-bottom: 2px solid #2f6f9f;
+            padding-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: #2f6f9f;
+            color: white;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        fieldset {
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid #2f6f9f;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #123b63;
+        }
+
+        label {
+            display: inline-block;
+            width: 180px;
+            margin-top: 10px;
+        }
+
+        input, select, textarea {
+            padding: 7px;
+            margin-top: 8px;
+        }
+
+        textarea {
+            width: 60%;
+        }
+
+        .media {
+            text-align: center;
+        }
+
+        button, input[type="submit"], input[type="reset"] {
+            background-color: #123b63;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #123b63;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
 </head>
 
-<body bgcolor="lightblue">
+<body>
 
-<!-- Heading -->
-<div align="center">
-    <h1>Student Profile</h1>
-    <h2>Karunya Institute of Technology and Sciences</h2>
+    <header>
+        <h1>Student Profile</h1>
+        <p>Karunya Institute of Technology and Sciences</p>
+    </header>
 
-    <img src="Logo.jpg" alt="Logo" width="120" height="120">
+    <nav>
+        <a href="https://in.linkedin.com/in/akash-stanley-a68899328">Profile</a>
+        <a href="https://www.karunya.edu/">Academics</a>
+        <a href="https://www.credly.com/badges/4ed9c76e-f348-4080-ba59-63265d204ceb">Achievements</a>
+    </nav>
 
-    <p>
-        <a href="https://www.karunya.edu" target="_blank">
-            Visit Karunya Website
-        </a>
-    </p>
-</div>
+    <div class="container">
 
-<hr>
+        <div class="profile">
 
-<!-- Table -->
-<h2>Courses Offered</h2>
+            <img src="Photo.jpeg" alt="Student Profile Photo">
 
-<table border="1" cellpadding="8">
-    <tr>
-        <th>Course</th>
-        <th>Status</th>
-    </tr>
+            <h2>S A Akash</h2>
 
-    <tr>
-        <td>Java</td>
-        <td>Completed</td>
-    </tr>
+            <a href="https://www.karunya.edu/" target="_blank">
+                Visit Karunya University Website
+            </a>
 
-    <tr>
-        <td>C Programming</td>
-        <td>Completed</td>
-    </tr>
+        </div>
 
-    <tr>
-        <td>PHP</td>
-        <td>Learning</td>
-    </tr>
+        <div id="academics">
 
-    <tr>
-        <td>JavaScript</td>
-        <td>Learning</td>
-    </tr>
-</table>
+            <h2>Academic Information</h2>
 
-<br>
+            <table>
 
-<h3>Course Progress</h3>
+                <tr>
+                    <th>Course</th>
+                    <th>Semester</th>
+                    <th>Grade</th>
+                </tr>
 
-<progress value="75" max="100"></progress>
+                <tr>
+                    <td>Web Technology</td>
+                    <td>III</td>
+                    <td>A</td>
+                </tr>
 
-<hr>
+                <tr>
+                    <td>Java Programming</td>
+                    <td>III</td>
+                    <td>A+</td>
+                </tr>
 
-<!-- Form -->
+                <tr>
+                    <td>Python Programming</td>
+                    <td>III</td>
+                    <td>A</td>
+                </tr>
 
-<form action="#" method="post">
+            </table>
 
-<fieldset>
+            <br>
 
-<legend><b>Personal Information</b></legend>
+            <label>Course Progress:</label>
 
-<label>Username :</label>
-<input type="text" name="username"><br><br>
+            <progress value="75" max="100">
+                75%
+            </progress>
 
-<label>Password :</label>
-<input type="password" name="password"><br><br>
+            75%
 
-<label>Register Number :</label>
-<input type="text"><br><br>
+        </div>
 
-<label>Age :</label>
-<input type="number" min="18" max="60"><br><br>
+        <div id="achievements">
 
-<label>Gender :</label>
+            <h2>Achievements and Skills</h2>
 
-<input type="radio" name="gender"> Male
-<input type="radio" name="gender"> Female
+            <ul>
+                <li>NPTEL Certifications</li>
+                <li>Mindkraft Competition</li>
+            </ul>
 
-<br><br>
+            <p>
+                Skills:
+                HTML, CSS, Java, C, Python and JavaScript
+            </p>
 
-<label>Date of Birth :</label>
-<input type="date"><br><br>
+        </div>
 
-<label>Email :</label>
-<input type="email"><br><br>
+        <div id="media" class="media">
 
-<label>Phone :</label>
-<input type="tel"><br><br>
+            <h2>HTML5 Media Elements</h2>
 
-<label>Website :</label>
-<input type="url"><br><br>
+            <h3>Audio</h3>
 
-<label>Search :</label>
-<input type="search"><br><br>
+            <audio controls>
 
-<label>Favorite Color :</label>
-<input type="color"><br><br>
+                <source src="Audio.mp3" type="audio/mpeg">
 
-<label>Month :</label>
-<input type="month"><br><br>
+                Your browser does not support audio.
 
-<label>Week :</label>
-<input type="week"><br><br>
+            </audio>
 
-<label>Time :</label>
-<input type="time"><br><br>
+            <h3>Video</h3>
 
-<label>Date & Time :</label>
-<input type="datetime-local"><br><br>
+            <video width="450" controls>
 
-<label>Range :</label>
-<input type="range"><br><br>
+                <source src="Video.mp4" type="video/mp4">
 
-<label>Profile Photo :</label>
-<input type="file"><br><br>
+                Your browser does not support video.
 
-<label>Address :</label><br>
+            </video>
 
-<textarea rows="4" cols="40"></textarea>
+            <h3>Embedded Document</h3>
 
-<br><br>
+            <embed
+                src="Ex 1.pdf"
+                width="500"
+                height="300"
+                type="application/pdf">
 
-<label>State :</label>
+            <h3>Karunya Website Using Iframe</h3>
 
-<select>
-    <option>Select</option>
-    <option>Tamil Nadu</option>
-    <option>Kerala</option>
-    <option>Karnataka</option>
-    <option>Andhra Pradesh</option>
-</select>
+            <iframe
+                src="https://www.google.com/maps?q=Karunya%20Institute%20of%20Technology%20and%20Sciences&output=embed"
+                width="700"
+                height="350"
+                title="Karunya University Website">
 
-<br><br>
+            </iframe>
 
-<input type="hidden" value="Student">
+        </div>
 
-<input type="button" value="Click">
+        <div id="registration">
 
-<input type="reset" value="Reset">
+            <h2>Student Details</h2>
 
-<input type="submit" value="Submit">
+            <form action="/action_page.php" method="get">
 
-</fieldset>
+                <fieldset>
 
-</form>
+                    <legend>Personal Information</legend>
 
-<hr>
+                    <label for="username">
+                        Username:
+                    </label>
 
-<!-- Image -->
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter username"
+                        required>
 
-<h2>Student Photo</h2>
+                    <br>
 
-<img src="Photo.jpeg" width="350" height="350" alt="Student">
+                    <label for="password">
+                        Password:
+                    </label>
 
-<hr>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter password"
+                        required>
 
-<!-- Audio -->
+                    <br>
 
-<h2>Audio</h2>
+                    <label for="regno">
+                        Register Number:
+                    </label>
 
-<audio controls>
-    <source src="Audio.mp3" type="audio/mpeg">
-    Your browser does not support audio.
-</audio>
+                    <input
+                        type="text"
+                        id="regno"
+                        name="regno"
+                        placeholder="Enter register number"
+                        required>
 
-<hr>
+                    <br>
 
-<!-- Video -->
+                    <label for="age">
+                        Age:
+                    </label>
 
-<h2>Video</h2>
+                    <input
+                        type="number"
+                        id="age"
+                        name="age"
+                        min="18"
+                        max="30">
 
-<video width="400" controls>
-    <source src="Video.mp4" type="video/mp4">
-    Your browser does not support video.
-</video>
+                    <br>
 
-<hr>
+                    <label>
+                        Gender:
+                    </label>
 
-<!-- Embed -->
+                    <input
+                        type="radio"
+                        name="gender"
+                        value="Male">
 
-<h2>Karunya University Website</h2>
+                    Male
 
-<embed src="Karunya University Website.html" width="800" height="600">
+                    <input
+                        type="radio"
+                        name="gender"
+                        value="Female">
 
-<hr>
+                    Female
 
+                    <br>
 
-<p align="center">
-© 2026 - URK24CS1166 - Web Technology Lab
-</p>
+                    <label for="dob">
+                        Date of Birth:
+                    </label>
+
+                    <input
+                        type="date"
+                        id="dob"
+                        name="dob">
+
+                    <br>
+
+                    <label for="color">
+                        Favorite Color:
+                    </label>
+
+                    <input
+                        type="color"
+                        id="color"
+                        name="color">
+
+                    <br>
+
+                    <label for="photo">
+                        Change Profile Photo:
+                    </label>
+
+                    <input
+                        type="file"
+                        id="photo"
+                        name="photo">
+
+                </fieldset>
+
+                <fieldset>
+
+                    <legend>Contact Information</legend>
+
+                    <label for="address">
+                        Address:
+                    </label>
+
+                    <textarea
+                        id="address"
+                        name="address"
+                        rows="4"
+                        cols="40"
+                        placeholder="Enter your address">
+                    </textarea>
+
+                    <br>
+
+                    <label for="state">
+                        State:
+                    </label>
+
+                    <select id="state" name="state">
+
+                        <option value="">
+                            Select State
+                        </option>
+
+                        <option value="Tamil Nadu">
+                            Tamil Nadu
+                        </option>
+
+                        <option value="Kerala">
+                            Kerala
+                        </option>
+
+                        <option value="Karnataka">
+                            Karnataka
+                        </option>
+
+                        <option value="Andhra Pradesh">
+                            Andhra Pradesh
+                        </option>
+
+                    </select>
+
+                    <br>
+
+                    <label for="zipcode">
+                        Zip Code:
+                    </label>
+
+                    <input
+                        type="number"
+                        id="zipcode"
+                        name="zipcode"
+                        placeholder="Enter zip code">
+
+                    <br>
+
+                    <label for="mobile">
+                        Mobile Number:
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="mobile"
+                        name="mobile"
+                        placeholder="Enter mobile number">
+
+                    <br>
+
+                    <label for="email">
+                        Email:
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter email">
+
+                    <br>
+
+                    <label for="website">
+                        Website URL:
+                    </label>
+
+                    <input
+                        type="url"
+                        id="website"
+                        name="website"
+                        placeholder="Enter website URL">
+
+                </fieldset>
+
+                <fieldset>
+
+                    <legend>Additional Details</legend>
+
+                    <label for="search">
+                        Search:
+                    </label>
+
+                    <input
+                        type="search"
+                        id="search"
+                        name="search">
+
+                    <br>
+
+                    <label for="range">
+                        Skill Level:
+                    </label>
+
+                    <input
+                        type="range"
+                        id="range"
+                        name="range"
+                        min="0"
+                        max="10">
+
+                    <br>
+
+                    <label>
+                        Interested Subjects:
+                    </label>
+
+                    <input
+                        type="checkbox"
+                        name="subject"
+                        value="HTML">
+
+                    HTML
+
+                    <input
+                        type="checkbox"
+                        name="subject"
+                        value="Java">
+
+                    Java
+
+                    <input
+                        type="checkbox"
+                        name="subject"
+                        value="Python">
+
+                    Python
+
+                    <br>
+
+                    <input
+                        type="hidden"
+                        name="formid"
+                        value="student_form">
+
+                </fieldset>
+
+                <center>
+
+                    <input
+                        type="submit"
+                        value="Submit">
+
+                    <input
+                        type="reset"
+                        value="Reset">
+
+                    <input
+                        type="button"
+                        value="Click Here"
+                        onclick="alert('Welcome to the Student Profile Page!')">
+
+                </center>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <footer>
+
+        <p>
+            © 2026 Student Profile |
+            Karunya Institute of Technology and Sciences |
+            All Rights Reserved.
+        </p>
+
+    </footer>
 
 </body>
+
 </html>
 
