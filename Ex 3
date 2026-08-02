@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e9e9e9;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Section */
+
+        .header {
+            height: 90px;
+            display: flex;
+            background: linear-gradient(to right, #1565c0, #42a5f5);
+        }
+
+        .profile {
+            width: 110px;
+            background-color: white;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .profile img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            border: 2px solid #1565c0;
+        }
+
+        .name {
+            flex: 1;
+            color: white;
+            text-align: center;
+            padding-top: 30px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Navigation Menu */
+
+        .menu {
+            display: flex;
+            background-color: #b3e5fc;
+        }
+
+        .menu a {
+            width: 25%;
+            padding: 9px;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+        }
+
+        .menu a:hover {
+            background-color: #4fc3f7;
+            color: white;
+        }
+
+        /* About and Interests */
+
+        .details {
+            display: flex;
+            height: 145px;
+        }
+
+        .about {
+            width: 45%;
+            background-color: #80cbc4;
+            padding: 22px;
+            font-size: 13px;
+            line-height: 20px;
+        }
+
+        .interests {
+            width: 55%;
+            background-color: #26a69a;
+            color: white;
+            text-align: center;
+            padding-top: 22px;
+        }
+
+        .interests h2 {
+            margin: 5px;
+        }
+
+        /* Personal Information */
+
+        .information {
+            display: flex;
+            justify-content: space-between;
+            background-color: #eeeeee;
+            padding: 10px;
+        }
+
+        .information div {
+            width: 23%;
+            height: 95px;
+            color: white;
+            text-align: center;
+            padding-top: 22px;
+            font-size: 15px;
+            font-weight: bold;
+            border: 3px solid white;
+        }
+
+        .education {
+            background-color: #3949ab;
+        }
+
+        .department {
+            background-color: #00838f;
+        }
+
+        .location {
+            background-color: #6a1b9a;
+        }
+
+        .hobby {
+            background-color: #ef6c00;
+        }
+
+        /* My Hobbies */
+
+        .hobbies {
+            display: flex;
+            background: linear-gradient(to right, #263238, #455a64);
+            color: white;
+            padding: 15px;
+        }
+
+        .hobby-box {
+            width: 33.33%;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .hobby-box img {
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+
+        .hobby-box h4 {
+            color: #80cbc4;
+            font-size: 13px;
+        }
+
+        .hobby-box p {
+            font-size: 11px;
+            line-height: 17px;
+        }
+
+        /* Footer */
+
+        .footer {
+            background-color: #fff3e0;
+            padding: 15px;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+
+        @media screen and (max-width: 720px) {
+
+            .webpage {
+                width: 95%;
+            }
+
+            .information {
+                flex-wrap: wrap;
+            }
+
+            .information div {
+                width: 48%;
+                margin-bottom: 8px;
+            }
+
+            .hobbies {
+                flex-direction: column;
+            }
+
+            .hobby-box {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="webpage">
+
+        <div class="header">
+
+            <div class="profile">
+
+                <img src="Photo.jpeg"
+                     alt="Profile Image">
+
+            </div>
+
+            <div class="name">
+
+                AKASH - STUDENT PROFILE
+
+            </div>
+
+        </div>
+
+        <div class="menu">
+
+            <a href="#">About Me</a>
+
+            <a href="#">Education</a>
+
+            <a href="#">Interests</a>
+
+            <a href="#">Contact</a>
+
+        </div>
+
+        <div class="details">
+
+            <div class="about">
+
+                Hello! I am Akash, a Computer
+                Science student. I enjoy learning
+                programming, developing webpages,
+                and exploring new technologies.
+
+            </div>
+
+            <div class="interests">
+
+                <h2>MY INTERESTS</h2>
+
+                Programming<br>
+
+                Web Development<br>
+
+                Reading<br>
+
+                Music
+
+            </div>
+
+        </div>
+
+        <div class="information">
+
+            <div class="education">
+
+                EDUCATION<br>
+
+                B.Tech
+
+            </div>
+
+            <div class="department">
+
+                DEPARTMENT<br>
+
+                CSE
+
+            </div>
+
+            <div class="location">
+
+                LOCATION<br>
+
+                INDIA
+
+            </div>
+
+            <div class="hobby">
+
+                FAVOURITE<br>
+
+                MUSIC
+
+            </div>
+
+        </div>
+
+        <div class="hobbies">
+
+            <div class="hobby-box">
+
+                <h4>READING</h4>
+
+                <p>
+
+                    I enjoy reading books and
+                    learning new things.
+
+                </p>
+
+            </div>
+
+            <div class="hobby-box">
+
+                <h4>LISTENING TO MUSIC</h4>
+
+                <p>
+
+                    Listening to music helps me
+                    relax and feel refreshed.
+
+                </p>
+
+            </div>
+
+            <div class="hobby-box">
+
+                <h4>GAMING</h4>
+
+                <p>
+
+                    I enjoy playing games during
+                    my free time.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="footer">
+
+            Student Profile Webpage
+
+            <br><br>
+
+            Department of Computer Science
+
+            <br>
+
+            Email: akash@example.com
+
+            <br><br>
+
+            © 2026 All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</body>
+</html>
+
