@@ -1,364 +1,340 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Student Profile</title>
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TechNova | Learning Hub</title>
 
-        * {
-            box-sizing: border-box;
-        }
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #e9e9e9;
-            font-family: Arial, sans-serif;
-        }
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    color:#172554;
+    background:#dbeafe;
+}
 
-        /* Header Section */
+.page{
+    width:95%;
+    max-width:1100px;
+    margin:12px auto;
+    background:white;
+    overflow:hidden;
+    border:2px solid #64748b;
+    box-shadow:0 5px 18px #94a3b8;
+}
 
-        .header {
-            height: 90px;
-            display: flex;
-            background: linear-gradient(to right, #1565c0, #42a5f5);
-        }
+header{
+    padding:25px;
+    color:white;
+    text-align:center;
+    background:linear-gradient(135deg,#172554,#2563eb,#7c3aed);
+}
 
-        .profile {
-            width: 110px;
-            background-color: white;
-            text-align: center;
-            padding: 8px;
-        }
+header h1{margin:0;font-size:35px}
+header p{margin:7px;color:#dbeafe}
 
-        .profile img {
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            border: 2px solid #1565c0;
-        }
+nav{
+    padding:9px;
+    text-align:center;
+    background:#cfe8f3;
+}
 
-        .name {
-            flex: 1;
-            color: white;
-            text-align: center;
-            padding-top: 30px;
-            font-size: 24px;
-            font-weight: bold;
-        }
+nav a{
+    display:inline-block;
+    margin:2px;
+    padding:7px 18px;
+    color:#172554;
+    text-decoration:none;
+}
 
-        /* Navigation Menu */
+nav a:hover{
+    color:white;
+    background:#7c3aed;
+}
 
-        .menu {
-            display: flex;
-            background-color: #b3e5fc;
-        }
+section{
+    margin:12px;
+    padding:18px;
+    background:#f8fafc;
+    border-radius:7px;
+}
 
-        .menu a {
-            width: 25%;
-            padding: 9px;
-            text-align: center;
-            text-decoration: none;
-            color: black;
-            font-size: 14px;
-        }
+h2{
+    margin-top:0;
+    color:#1d4ed8;
+}
 
-        .menu a:hover {
-            background-color: #4fc3f7;
-            color: white;
-        }
+.intro{
+    margin:100px 150px 100px 80px;
+    color:green;
+    letter-spacing:5px;
+    text-align:right;
+    text-decoration:underline;
+    text-shadow:4px 4px 8px blue;
+    font-family:Georgia,Garamond,serif;
+    font-style:italic;
+    font-weight:bolder;
+    font-size:20px;
+}
 
-        /* About and Interests */
+.courses,.skills{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
 
-        .details {
-            display: flex;
-            height: 145px;
-        }
+.card{
+    width:23%;
+    padding:10px;
+    color:white;
+    text-align:center;
+    background:#163d70;
+    border-radius:5px;
+}
 
-        .about {
-            width: 45%;
-            background-color: #80cbc4;
-            padding: 22px;
-            font-size: 13px;
-            line-height: 20px;
-        }
+.card img{
+    width:90px;
+    height:90px;
+    object-fit:contain;
+}
 
-        .interests {
-            width: 55%;
-            background-color: #26a69a;
-            color: white;
-            text-align: center;
-            padding-top: 22px;
-        }
+.card p{margin:6px}
 
-        .interests h2 {
-            margin: 5px;
-        }
+.course{
+    width:50%;
+    height:200px;
+    margin:18px auto;
+    padding:15px;
+    background-color:lightblue;
+    background-image:url("paper.jpg");
+    background-repeat:no-repeat;
+    background-position:right;
+    border-left:6px solid #2563eb;
+}
 
-        /* Personal Information */
+.block{
+    display:block;
+    padding:12px;
+    margin:15px 0;
+    text-align:center;
+    background:#ddd6fe;
+}
 
-        .information {
-            display: flex;
-            justify-content: space-between;
-            background-color: #eeeeee;
-            padding: 10px;
-        }
+.inline{
+    display:inline;
+    padding:8px;
+    background:#fef3c7;
+}
 
-        .information div {
-            width: 23%;
-            height: 95px;
-            color: white;
-            text-align: center;
-            padding-top: 22px;
-            font-size: 15px;
-            font-weight: bold;
-            border: 3px solid white;
-        }
+.skill{
+    width:48%;
+    padding:15px;
+    text-align:center;
+    background:#e0f2fe;
+    border-radius:8px;
+}
 
-        .education {
-            background-color: #3949ab;
-        }
+.skill img{
+    width:110px;
+    height:110px;
+    object-fit:contain;
+    border-radius:50%;
+    border:3px solid #172554;
+}
 
-        .department {
-            background-color: #00838f;
-        }
+.skill ul{
+    text-align:left;
+    list-style-type:circle;
+}
 
-        .location {
-            background-color: #6a1b9a;
-        }
+.skill li{margin:6px}
 
-        .hobby {
-            background-color: #ef6c00;
-        }
+.about{
+    column-count:2;
+    column-gap:30px;
+    padding:15px;
+    background:#eef2ff;
+}
 
-        /* My Hobbies */
+footer{
+    padding:15px;
+    color:white;
+    text-align:center;
+    background:#172554;
+}
 
-        .hobbies {
-            display: flex;
-            background: linear-gradient(to right, #263238, #455a64);
-            color: white;
-            padding: 15px;
-        }
+@media(max-width:600px){
 
-        .hobby-box {
-            width: 33.33%;
-            text-align: center;
-            padding: 8px;
-        }
+    .page{width:98%}
 
-        .hobby-box img {
-            width: 105px;
-            height: 105px;
-            border-radius: 50%;
-            border: 4px solid white;
-        }
+    .intro{
+        margin:30px 20px;
+        font-size:16px;
+    }
 
-        .hobby-box h4 {
-            color: #80cbc4;
-            font-size: 13px;
-        }
+    .courses,.skills{
+        flex-wrap:wrap;
+    }
 
-        .hobby-box p {
-            font-size: 11px;
-            line-height: 17px;
-        }
+    .card,.skill{
+        width:47%;
+    }
 
-        /* Footer */
+    .course{
+        width:90%;
+        height:auto;
+    }
 
-        .footer {
-            background-color: #fff3e0;
-            padding: 15px;
-            font-size: 11px;
-            text-align: center;
-        }
+    .about{
+        column-count:1;
+    }
 
-        /* Responsive Design */
-
-        @media screen and (max-width: 720px) {
-
-            .webpage {
-                width: 95%;
-            }
-
-            .information {
-                flex-wrap: wrap;
-            }
-
-            .information div {
-                width: 48%;
-                margin-bottom: 8px;
-            }
-
-            .hobbies {
-                flex-direction: column;
-            }
-
-            .hobby-box {
-                width: 100%;
-            }
-        }
-
-    </style>
+    nav a{
+        display:block;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="webpage">
+<div class="page">
 
-        <div class="header">
+<header>
+    <h1>TechNova</h1>
+    <p>Computer & Technology Learning Hub</p>
+</header>
 
-            <div class="profile">
+<nav>
+    <a href="#home">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="#skills">Skills</a>
+    <a href="#about">About</a>
+</nav>
 
-                <img src="Photo.jpeg"
-                     alt="Profile Image">
+<section id="home">
 
-            </div>
+<h2>Welcome to TechNova</h2>
 
-            <div class="name">
+<p class="intro">
+Learn, Code and Innovate
+</p>
 
-                AKASH - STUDENT PROFILE
+<div class="block">
+🚀 Start Your Coding Journey Today!
+</div>
 
-            </div>
+<div style="text-align:center">
+<span class="inline">
+New: Full Stack Development
+</span>
+</div>
 
-        </div>
+</section>
 
-        <div class="menu">
+<section id="courses">
 
-            <a href="#">About Me</a>
+<h2>Popular Courses</h2>
 
-            <a href="#">Education</a>
+<div class="courses">
 
-            <a href="#">Interests</a>
+<div class="card">
+<img src="html.jpg">
+<p>HTML5</p>
+</div>
 
-            <a href="#">Contact</a>
+<div class="card">
+<img src="css3.jpg">
+<p>CSS3</p>
+</div>
 
-        </div>
+<div class="card">
+<img src="javascript.jpg">
+<p>JavaScript</p>
+</div>
 
-        <div class="details">
+<div class="card">
+<img src="python.jpg">
+<p>Python</p>
+</div>
 
-            <div class="about">
+</div>
 
-                Hello! I am Akash, a Computer
-                Science student. I enjoy learning
-                programming, developing webpages,
-                and exploring new technologies.
+<div class="course">
 
-            </div>
+<h2>Featured Course</h2>
 
-            <div class="interests">
+Learn HTML, CSS and JavaScript
+through practical examples.
 
-                <h2>MY INTERESTS</h2>
+</div>
 
-                Programming<br>
+</section>
 
-                Web Development<br>
+<section id="skills">
 
-                Reading<br>
+<h2>Learning Skills</h2>
 
-                Music
+<div class="skills">
 
-            </div>
+<div class="skill">
 
-        </div>
+<img src="hard.png">
 
-        <div class="information">
+<h3>Hard Skills</h3>
 
-            <div class="education">
+<ul>
+<li>HTML & CSS</li>
+<li>C and Java</li>
+<li>Python and SQL</li>
+</ul>
 
-                EDUCATION<br>
+</div>
 
-                B.Tech
+<div class="skill">
 
-            </div>
+<img src="soft.png">
 
-            <div class="department">
+<h3>Soft Skills</h3>
 
-                DEPARTMENT<br>
+<ul>
+<li>Communication</li>
+<li>Teamwork</li>
+<li>Problem Solving</li>
+</ul>
 
-                CSE
+</div>
 
-            </div>
+</div>
 
-            <div class="location">
+</section>
 
-                LOCATION<br>
+<section id="about">
 
-                INDIA
+<h2>About TechNova</h2>
 
-            </div>
+<div class="about">
 
-            <div class="hobby">
+TechNova is a learning hub designed
+for CSE students. It provides technology
+courses and useful coding resources.
 
-                FAVOURITE<br>
+Students can improve their skills,
+create projects and learn through
+simple practical examples.
 
-                MUSIC
+</div>
 
-            </div>
+</section>
 
-        </div>
+<footer>
+© 2026 TechNova | Learn • Code • Innovate
+</footer>
 
-        <div class="hobbies">
-
-            <div class="hobby-box">
-
-                <h4>READING</h4>
-
-                <p>
-
-                    I enjoy reading books and
-                    learning new things.
-
-                </p>
-
-            </div>
-
-            <div class="hobby-box">
-
-                <h4>LISTENING TO MUSIC</h4>
-
-                <p>
-
-                    Listening to music helps me
-                    relax and feel refreshed.
-
-                </p>
-
-            </div>
-
-            <div class="hobby-box">
-
-                <h4>GAMING</h4>
-
-                <p>
-
-                    I enjoy playing games during
-                    my free time.
-
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="footer">
-
-            Student Profile Webpage
-
-            <br><br>
-
-            Department of Computer Science
-
-            <br>
-
-            Email: akash@example.com
-
-            <br><br>
-
-            © 2026 All Rights Reserved.
-
-        </div>
-
-    </div>
+</div>
 
 </body>
 </html>
-
