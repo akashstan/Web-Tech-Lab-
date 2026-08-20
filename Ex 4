@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WizTech Product Hub</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial,sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: #f1f8ff; color: #172554; }
+
+/* Header */
+header {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background:
+        radial-gradient(circle at 15% 40%,#00e5ff44,transparent 25%),
+        linear-gradient(120deg,#081b4b,#123c91,#071a3d);
+    border-bottom: 3px solid #00e5a8;
+    box-shadow: 0 8px 20px #0005;
+}
+.welcome { color:#00e5a8; font-size:23px; }
+h1 { font-size:58px; text-shadow:0 4px 12px #0008; }
+.tech,.tagline span { color:#00e5a8; }
+header h2 { font-size:30px; }
+.tagline { margin-top:10px; font-size:19px; }
+
+/* Navigation */
+nav {
+    height:55px;
+    display:flex;
+    justify-content:center;
+    background:#071a3d;
+    box-shadow:0 3px 10px #0005;
+    position:sticky;
+    top:0;
+    z-index:5;
+}
+nav a {
+    width:160px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+nav a:hover {
+    background:linear-gradient(90deg,#00a878,#00d9a0);
+}
+
+/* Sections */
+section {
+    padding:40px 20px;
+    scroll-margin-top:55px;
+}
+.title {
+    text-align:center;
+    color:#123c91;
+    margin-bottom:20px;
+}
+
+/* Products */
+#home { background:#f1f8ff; }
+
+.product-box {
+    width:410px;
+    max-width:95%;
+    margin:auto;
+    overflow:hidden;
+    background:white;
+    border-radius:18px;
+    box-shadow:0 8px 25px #0002;
+}
+.product-title {
+    padding:13px;
+    text-align:center;
+    color:white;
+    font-weight:bold;
+    background:linear-gradient(90deg,#0868c7,#00b894);
+}
+.product {
+    height:64px;
+    padding:8px 15px;
+    display:flex;
+    align-items:center;
+    border-bottom:1px solid #e1eaf5;
+    transition:.3s;
+}
+.product:nth-child(even) { background:#f0faff; }
+.product:hover {
+    background:#c9fff0;
+    transform:translateX(5px);
+}
+.product-img {
+    width:55px;
+    height:48px;
+    margin-right:15px;
+    object-fit:contain;
+}
+.product:hover .product-img { transform:scale(1.15); }
+.product-info { flex:1; }
+.product-name { font-weight:bold; }
+.product-desc {
+    margin-top:4px;
+    color:#64748b;
+    font-size:12px;
+}
+.arrow {
+    width:28px;
+    height:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    color:white;
+    background:linear-gradient(135deg,#00a878,#00d9a0);
+}
+
+/* About */
+#about {
+    text-align:center;
+    color:white;
+    background:linear-gradient(135deg,#102a72,#087f8c);
+}
+.about-box {
+    max-width:750px;
+    margin:auto;
+    padding:30px;
+    border-radius:20px;
+    background:#ffffff18;
+    box-shadow:0 8px 25px #0003;
+}
+.about-box h2 {
+    color:#5fffc9;
+    margin-bottom:15px;
+}
+.about-box p { line-height:1.7; }
+
+/* Contact */
+#contact {
+    background:
+        linear-gradient(#071a3ddd,#071a3ddd),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80")
+        center/cover fixed;
+}
+.forms {
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    flex-wrap:wrap;
+}
+.form-card {
+    width:380px;
+    padding:28px;
+    background:#fffffff7;
+    border-radius:20px;
+    box-shadow:0 12px 35px #0006;
+    transition:.3s;
+}
+.form-card:hover { transform:translateY(-7px); }
+.form-card h2 {
+    text-align:center;
+    margin-bottom:18px;
+    color:#123c91;
+}
+label {
+    display:block;
+    margin:10px 0 5px;
+    font-weight:bold;
+    font-size:14px;
+}
+input {
+    width:100%;
+    padding:12px;
+    border:2px solid #d8e3ef;
+    border-radius:9px;
+    outline:none;
+}
+input:focus {
+    border-color:#00b894;
+    background:#f0fffb;
+}
+input:required { border-left:4px solid #00b894; }
+input[type=email]:valid {
+    color:#00875a;
+    border-color:#00c98b;
+}
+input[type=email]:invalid { color:#d32f2f; }
+
+button {
+    width:100%;
+    padding:13px;
+    margin-top:18px;
+    border:0;
+    border-radius:9px;
+    color:white;
+    font-weight:bold;
+    background:linear-gradient(90deg,#008cff,#00c98b);
+    cursor:pointer;
+    transition:.3s;
+}
+button:hover { transform:scale(1.03); }
+
+/* Footer */
+footer {
+    padding:25px;
+    text-align:center;
+    color:white;
+    background:#071a3d;
+    border-top:3px solid #00e5a8;
+}
+footer strong { color:#00e5a8; }
+
+/* Responsive */
+@media(max-width:600px) {
+    nav a { width:33%; font-size:13px; }
+    h1 { font-size:38px; }
+    header { height:220px; }
+    .forms { gap:20px; }
+    .form-card { width:95%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <div class="welcome">Welcome to</div>
+        <h1>Wiz<span class="tech">Tech</span></h1>
+        <h2>Product Hub</h2>
+        <p class="tagline">Smart Tech. <span>Better Life.</span></p>
+    </div>
+</header>
+
+<nav>
+    <a href="#home">⌂ Home</a>
+    <a href="#about">♟ About Us</a>
+    <a href="#contact">✉ Contact</a>
+</nav>
+
+<!-- Home -->
+<section id="home">
+    <h2 class="title">Featured Products</h2>
+
+    <div class="product-box">
+        <div class="product-title">Featured Products</div>
+
+        <div class="product">
+            <img class="product-img" src="laptop.jpg" alt="Laptop">
+            <div class="product-info">
+                <div class="product-name">UltraBook X1</div>
+                <div class="product-desc">High Performance Laptop</div>
+            </div>
+            <div class="arrow">›</div>
+        </div>
+
+        <div class="product">
+            <img class="product-img" src="earbuds.jpg" alt="Earbuds">
+            <div class="product-info">
+                <div class="product-name">SoundPro Buds</div>
+                <div class="product-desc">Wireless Earbuds</div>
+            </div>
+            <div class="arrow">›</div>
+        </div>
+
+        <div class="product">
+            <img class="product-img" src="watch.jpg" alt="Watch">
+            <div class="product-info">
+                <div class="product-name">WizFit Smart Watch</div>
+                <div class="product-desc">Track. Monitor. Achieve.</div>
+            </div>
+            <div class="arrow">›</div>
+        </div>
+
+        <div class="product">
+            <img class="product-img" src="camera.jpg" alt="Camera">
+            <div class="product-info">
+                <div class="product-name">SnapShot Pro Camera</div>
+                <div class="product-desc">Capture Every Moment</div>
+            </div>
+            <div class="arrow">›</div>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about">
+    <div class="about-box">
+        <h2>About WizTech</h2>
+        <p>
+            WizTech Product Hub brings modern technology products
+            together in one place. We provide smart laptops, wireless
+            earbuds, smart watches and cameras designed to make
+            everyday life easier, faster and better.
+        </p>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <div class="forms">
+
+        <div class="form-card">
+            <h2>👤 Sign In</h2>
+            <form>
+                <label>Username</label>
+                <input type="text" placeholder="Enter Username / Email" required>
+
+                <label>Password</label>
+                <input type="password" placeholder="Enter Password" required>
+
+                <button>👤 Sign In</button>
+            </form>
+        </div>
+
+        <div class="form-card">
+            <h2>👤 Sign Up</h2>
+            <form>
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter Full Name" required>
+
+                <label>Email</label>
+                <input type="email" placeholder="Enter Email" required>
+
+                <label>Password</label>
+                <input type="password" placeholder="Enter Password" required>
+
+                <button>👤 Sign Up</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <strong>WizTech Product Hub</strong>
+    <p>© 2026 (URK24CS1166) | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
