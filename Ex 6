@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Timer Functions & Arrays</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial;
+            background: #f4f7fb;
+            color: #172554;
+        }
+
+        header {
+            text-align: center;
+            padding: 35px;
+            color: white;
+            background: linear-gradient(120deg,#0f172a,#1e40af);
+        }
+
+        header h1 { margin: 0; }
+        header p { color: #cbd5e1; }
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 18px;
+        }
+
+        section {
+            background: white;
+            padding: 24px;
+            margin-bottom: 20px;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px #0001;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #1e3a8a;
+        }
+
+        button {
+            padding: 10px 18px;
+            margin: 5px;
+            border: 0;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover { background: #1d4ed8; }
+
+        #time {
+            display: block;
+            font-size: 42px;
+            font-weight: bold;
+            color: #2563eb;
+            margin: 15px 0;
+        }
+
+        #para1 {
+            padding: 20px;
+            background: #eff6ff;
+            border-radius: 10px;
+            transition: .3s;
+        }
+
+        #car {
+            width: 100px;
+            position: relative;
+            left: 0;
+        }
+
+        #students {
+            line-height: 1.8;
+        }
+
+        .result {
+            font-weight: 600;
+            color: #2563eb;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>JavaScript Timer Functions & Arrays</h1>
+    <p>Interactive JavaScript Applications</p>
+</header>
+
+<main>
+
+    <!-- 1. Digital Clock -->
+    <section>
+        <h2>01 | Digital Clock</h2>
+        <span id="time">00:00:00</span>
+        <p class="result">Live system time</p>
+    </section>
+
+
+    <!-- 2. Dynamic Background -->
+    <section>
+        <h2>02 | Dynamic Background</h2>
+        <p>The background changes automatically every 30 seconds.</p>
+        <button onclick="setBackgroundColor()">Change Now</button>
+    </section>
+
+
+    <!-- 3. Font Size -->
+    <section>
+        <h2>03 | Font Size Events</h2>
+
+        <p id="para1"
+           onmouseover="incSize()"
+           onmouseout="decSize()">
+            Move your mouse over this paragraph to zoom in.
+        </p>
+    </section>
+
+
+    <!-- 4. Moving Car -->
+    <section>
+        <h2>04 | Moving Car</h2>
+
+        <img src="car.jpg" id="car">
+
+        <br>
+
+        <button onclick="moveRight()">Move</button>
+        <button onclick="stop()">Stop</button>
+    </section>
+
+
+    <!-- 5. Student Array -->
+    <section>
+        <h2>05 | Student Information</h2>
+        <div id="students"></div>
+    </section>
+
+</main>
+
+<footer>
+    JavaScript Timer Functions and Arrays
+</footer>
+
+
+<script>
+
+    // 1. Digital Clock
+    function display() {
+        let d = new Date();
+
+        time.innerHTML =
+            d.toLocaleTimeString();
+    }
+
+    display();
+    setInterval(display, 1000);
+
+
+    // 2. Dynamic Background
+    function setBackgroundColor() {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+
+        document.body.style.background =
+            `rgb(${r},${g},${b})`;
+    }
+
+    setInterval(setBackgroundColor, 30000);
+
+
+    // 3. Font Size Events
+    function incSize() {
+        para1.style.fontSize = "28px";
+    }
+
+    function decSize() {
+        para1.style.fontSize = "16px";
+    }
+
+
+    // 4. Moving Car
+    let position = 0;
+    let animation;
+
+    function moveRight() {
+        clearInterval(animation);
+
+        animation = setInterval(() => {
+            position++;
+            car.style.left = position + "px";
+        }, 10);
+    }
+
+    function stop() {
+        clearInterval(animation);
+    }
+
+
+    // 5. Student Array
+    let student = [
+        { name: "John", regno: "URK13CS1135", year: 1995 },
+        { name: "Joseph", regno: "URK16CS1150", year: 1998 },
+        { name: "David", regno: "URK20CS1165", year: 2002 },
+        { name: "Daniel", regno: "URK22CS1180", year: 2004 }
+    ];
+
+    students.innerHTML = student.map(s =>
+        `<p><b>${s.name}</b>'s Register Number is
+        <b>${s.regno}</b> —
+        ${s.year < 2000 ? "Born before 2000" : "Born after 2000"}</p>`
+    ).join("");
+
+</script>
+
+</body>
+</html>
