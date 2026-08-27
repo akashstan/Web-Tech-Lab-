@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript DOM & Events</title>
+<style>
+*{box-sizing:border-box}
+body{
+    margin:0;font-family:Arial;color:#172554;
+    background:linear-gradient(135deg,#dbeafe,#ede9fe);
+}
+header{
+    text-align:center;padding:28px;color:white;
+    background:linear-gradient(135deg,#1e3a8a,#7c3aed);
+}
+main{max-width:900px;margin:25px auto;padding:0 15px}
+section{
+    background:#ffffffdd;padding:20px;margin:18px 0;
+    border-radius:15px;box-shadow:0 5px 18px #0002;
+}
+h2{margin:0 0 15px;color:#4338ca}
+input,select,button{
+    padding:10px;margin:5px;border-radius:7px;
+    border:1px solid #cbd5e1;font-size:15px
+}
+button{
+    background:#4f46e5;color:white;border:0;cursor:pointer
+}
+button:hover{background:#3730a3}
+.result{font-weight:bold;color:#2563eb}
+#garden img{width:65px;height:65px;margin:3px}
+footer{text-align:center;padding:15px;color:#64748b}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>JavaScript DOM & Events</h1>
+</header>
+
+<main>
+
+<section>
+<h2>1. Shortest & Longest Word</h2>
+<input id="sentence" value="Web Development Tutorial">
+<button onclick="findWords()">Find</button>
+<p id="words" class="result"></p>
+</section>
+
+<section>
+<h2>2. BMI Calculator</h2>
+<input id="weight" placeholder="Weight (kg)">
+<input id="height" placeholder="Height (cm)">
+<button onclick="calculate()">Calculate</button>
+<p class="result">BMI: <span id="score"></span> |
+Type: <span id="type"></span></p>
+</section>
+
+<section>
+<h2>3. Fruit Farm</h2>
+<input id="rows" placeholder="Rows">
+<input id="columns" placeholder="Columns">
+<button onclick="grow()">Plant Garden</button>
+<div id="garden"></div>
+</section>
+
+<section>
+<h2>4. Currency Converter</h2>
+<input id="data" placeholder="Amount">
+<select id="from"><option>Indian Rupee</option><option>US Dollar</option></select>
+→
+<select id="to"><option>US Dollar</option><option>Indian Rupee</option></select>
+<button onclick="convert()">Convert</button>
+<p class="result">Answer: <span id="answer"></span></p>
+</section>
+
+<section>
+<h2>5. Coin Flip</h2>
+<img src="heads.jpg" id="coin" width="75"><br>
+<button id="flip">Flip Coin</button>
+<p class="result">
+Heads: <span id="num_heads">0</span> |
+Tails: <span id="num_tails">0</span>
+</p>
+</section>
+
+<section>
+<h2>6. Birthday Cake Order</h2>
+<input id="small" placeholder="½kg Cakes">
+<input id="medium" placeholder="1kg Cakes">
+<input id="large" placeholder="2kg Cakes"><br>
+
+<label><input type="radio" name="tip" value="10">10%</label>
+<label><input type="radio" name="tip" value="15" checked>15%</label>
+<label><input type="radio" name="tip" value="20">20%</label>
+
+<button id="submit">Calculate Order</button>
+<p class="result">Total: <span id="price"></span></p>
+</section>
+
+</main>
+
+<footer>JavaScript DOM Elements and Events</footer>
+
+<script>
+
+function findWords(){
+    let w=sentence.value.trim().split(/\s+/);
+    let s=w.reduce((a,b)=>a.length<b.length?a:b);
+    let l=w.reduce((a,b)=>a.length>b.length?a:b);
+    words.innerHTML=`Shortest: ${s} | Longest: ${l}`;
+}
+
+function calculate(){
+    let bmi=Number(weight.value)/(Number(height.value)/100)**2;
+    score.innerHTML=bmi.toFixed(2);
+    type.innerHTML=bmi<18?"Underweight":bmi<25?"Normal":bmi<30?"Overweight":"Obese";
+}
+
+function grow(){
+    garden.innerHTML="";
+    let f=["Apple.jpg","Orange.jpg"];
+    for(let i=0;i<rows.value;i++){
+        for(let j=0;j<columns.value;j++)
+            garden.innerHTML+=`<img src="${f[Math.floor(Math.random()*2)]}">`;
+        garden.innerHTML+="<br>";
+    }
+}
+
+function convert(){
+    let n=+data.value,f=from.value,t=to.value;
+    let r=f==t?n:f=="Indian Rupee"?n*.015:n*67.12;
+    answer.innerHTML=r.toFixed(2);
+}
+
+let h=0,t=0;
+
+flip.onclick=()=>{
+    let x=Math.random()<.5;
+    coin.src=x?"heads.jpg":"tails.jpg";
+    x?h++:t++;
+    num_heads.innerHTML=h;
+    num_tails.innerHTML=t;
+};
+
+submit.onclick=()=>{
+    let c=small.value*100+medium.value*200+large.value*400;
+    let tip=document.querySelector('[name="tip"]:checked').value;
+    price.innerHTML="Rs. "+(c*1.09*(1+tip/100)).toFixed(2);
+};
+
+</script>
+</body>
+</html>
