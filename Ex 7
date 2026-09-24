@@ -1,0 +1,654 @@
+1) Budget Calculator
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Budget Calculator</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+*{box-sizing:border-box}
+body{
+    margin:0;font-family:Arial;text-align:center;
+    background:linear-gradient(135deg,#e0e7ff,#f0f9ff);
+    color:#172554
+}
+.box{
+    width:760px;margin:45px auto;padding:25px;
+    background:white;border-radius:18px;
+    box-shadow:0 15px 40px #0002
+}
+h2{
+    margin:-25px -25px 25px;padding:14px;
+    color:white;background:linear-gradient(90deg,#172554,#2563eb);
+    border-radius:18px 18px 0 0
+}
+input{
+    width:60px;padding:8px;text-align:center;
+    border:1px solid #94a3b8;border-radius:5px
+}
+.amount{width:130px}
+.percent{
+    display:flex;justify-content:center;
+    gap:18px;white-space:nowrap
+}
+button{
+    padding:10px 25px;border:0;border-radius:7px;
+    background:#172554;color:white
+}
+.parts{
+    display:flex;justify-content:center;
+    gap:12px;margin-top:25px
+}
+.part{
+    width:140px;padding:13px 5px;color:white;
+    border-radius:10px;font-weight:bold
+}
+.r{background:#2563eb}.a{background:#16a34a}
+.e{background:#7c3aed}.s{background:#ec4899}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>Budget Calculator App</h2>
+
+<b>Enter Amount You Want to Manage</b><br><br>
+<input class="amount" id="amount" value="15000">
+
+<p><b>How would you like to divide your money?</b></p>
+
+<div class="percent">
+<label>Room Rent (%) <input id="room" value="50"></label>
+<label>Accessories (%) <input id="access" value="20"></label>
+<label>Emergency (%) <input id="emergency" value="20"></label>
+<label>Saving (%) <input id="saving" value="10"></label>
+</div>
+
+<br>
+<button id="calc">Evaluate My Money</button>
+
+<div class="parts">
+<div class="part r">ROOM RENT<br>₹<span id="r">0</span></div>
+<div class="part a">ACCESSORIES<br>₹<span id="a">0</span></div>
+<div class="part e">EMERGENCY<br>₹<span id="e">0</span></div>
+<div class="part s">SAVING<br>₹<span id="s">0</span></div>
+</div>
+</div>
+
+<script>
+$("#calc").click(function(){
+    let a=+$("#amount").val(),
+        p=[$("#room").val(),$("#access").val(),
+           $("#emergency").val(),$("#saving").val()];
+
+    if(p.reduce((x,y)=>+x + +y,0)!=100)
+        return alert("Percentage values must total 100%.");
+
+    ["#r","#a","#e","#s"].forEach((id,i)=>
+        $(id).text(a*p[i]/100));
+});
+</script>
+
+</body>
+</html>
+
+2) Cake Shop
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cake Shop</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+*{box-sizing:border-box}
+body{
+    margin:0;font-family:Arial;text-align:center;color:#3b1725;
+    background:linear-gradient(135deg,#3b0a24,#8b3a50,#f8d7c4);
+}
+.shop{
+    width:720px;margin:35px auto;padding:25px;background:#fffdfb;
+    border-radius:24px;box-shadow:0 20px 50px #21081766;
+}
+h1{
+    margin:-25px -25px 25px;padding:20px;color:white;
+    background:linear-gradient(90deg,#5b1635,#c05b72);
+    border-radius:24px 24px 0 0;letter-spacing:3px;
+}
+.cakes{display:flex;gap:12px;justify-content:center}
+.cake{
+    width:150px;padding:10px;background:#fff5f0;
+    border:1px solid #edc8bd;border-radius:15px;
+    box-shadow:0 7px 18px #4a102922;
+}
+.cake img{width:125px;height:85px;object-fit:cover;border-radius:10px}
+.cake b,.total{color:#9f1239}
+h2{color:#7c2d4f;margin:20px 0 10px}
+.order{
+    width:430px;margin:auto;padding:12px 20px;
+    background:#fff5f0;border-radius:15px;
+}
+.row{
+    display:flex;justify-content:space-between;
+    align-items:center;margin:8px;
+}
+input{
+    width:55px;padding:7px;text-align:center;
+    border:1px solid #d9a9a0;border-radius:7px;
+}
+button{
+    padding:10px 32px;border:0;border-radius:8px;
+    background:linear-gradient(90deg,#7c2d4f,#be185d);
+    color:white;font-weight:bold;cursor:pointer;
+}
+.bill{
+    margin-top:18px;padding:14px;background:#fce7f3;
+    border-radius:12px;
+}
+.total{font-size:24px;font-weight:bold;margin-top:5px}
+</style>
+</head>
+
+<body>
+
+<div class="shop">
+
+<h1>🍰 CAKE SHOP</h1>
+
+<div class="cakes">
+<div class="cake"><img src="color cake.jpg">Color Cake<br><b>₹300</b></div>
+<div class="cake"><img src="brown cake.jpg">Brown Cake<br><b>₹200</b></div>
+<div class="cake"><img src="milky cake.jpg">Milky Cake<br><b>₹250</b></div>
+<div class="cake"><img src="black forest cake.jpg">Black Forest<br><b>₹350</b></div>
+</div>
+
+<h2>Order Cake</h2>
+
+<div class="order">
+<div class="row">Color Cake <input id="c" value="2"></div>
+<div class="row">Brown Cake <input id="b" value="1"></div>
+<div class="row">Milky Cake <input id="m" value="2"></div>
+<div class="row">Black Forest <input id="f" value="1"></div>
+<button id="order">PLACE ORDER</button>
+</div>
+
+<div class="bill">
+<b>🧾 PURCHASE ORDER BILL</b><br>
+Total Price
+<div class="total">₹<span id="total">0</span></div>
+</div>
+
+</div>
+
+<script>
+$("#order").click(function(){
+    let p=[300,200,250,350],q=["#c","#b","#m","#f"],t=0;
+    q.forEach((x,i)=>t+=$(x).val()*p[i]);
+    $("#total").text(t);
+});
+</script>
+
+</body>
+</html>
+
+3) Car Workshop
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Car Workshop</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+body{
+    margin:0;font-family:Arial;text-align:center;
+    background:linear-gradient(135deg,#e0f2fe,#eef2ff)
+}
+.card{
+    width:650px;margin:45px auto;padding:25px;
+    background:white;border-radius:18px;
+    box-shadow:0 15px 40px #0002
+}
+h2{color:#2563eb}
+.car{
+    position:relative;width:260px;height:120px;
+    margin:40px auto
+}
+.body{
+    width:210px;height:55px;background:#2563eb;
+    position:absolute;bottom:30px;left:25px;
+    border-radius:8px
+}
+.roof{
+    width:120px;height:45px;background:#60a5fa;
+    position:absolute;top:5px;left:70px;
+    border-radius:45px 45px 0 0
+}
+.wheel{
+    width:42px;height:42px;background:#111827;
+    border-radius:50%;position:absolute;bottom:8px
+}
+.w1{left:45px}.w2{right:45px}
+button{
+    padding:10px 15px;margin:7px;border:1px solid #93c5fd;
+    background:white;color:#2563eb;border-radius:7px;cursor:pointer
+}
+</style>
+</head>
+
+<body>
+<div class="card">
+<h2>🚗 Car Workshop</h2>
+
+<div class="car">
+<div class="roof" id="roof"></div>
+<div class="body" id="body"></div>
+<div class="wheel w1" id="w1"></div>
+<div class="wheel w2" id="w2"></div>
+</div>
+
+<button id="color">Change Body Color</button>
+<button id="glass">Change Glass Color</button>
+<button id="tyre">Increase Tyre Size</button>
+<button id="reset">Reset</button>
+</div>
+
+<script>
+let colors=["#2563eb","#dc2626","#16a34a","#9333ea"];
+
+$("#color").click(function(){
+    let c=colors[Math.floor(Math.random()*colors.length)];
+    $("#body").css("background",c);
+});
+
+$("#glass").click(function(){
+    $("#roof").css("background",
+        $("#roof").css("background-color")=="rgb(96, 165, 250)"?"#111827":"#60a5fa");
+});
+
+$("#tyre").click(function(){
+    $(".wheel").animate({width:"52px",height:"52px"},300);
+});
+
+$("#reset").click(function(){
+    $("#body").css("background","#2563eb");
+    $("#roof").css("background","#60a5fa");
+    $(".wheel").animate({width:"42px",height:"42px"},300);
+});
+</script>
+</body>
+</html>
+
+4) jQuery Effects
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Effects</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+*{box-sizing:border-box}
+body{
+    margin:0;font-family:Arial;
+    background:linear-gradient(135deg,#0f172a,#312e81);
+    color:white;text-align:center
+}
+.container{width:700px;margin:50px auto}
+h1{margin-bottom:25px}
+#product{
+    background:white;color:#172033;
+    padding:25px;border-radius:18px;
+    box-shadow:0 20px 50px #0006;
+    width:430px;margin:20px auto
+}
+.price{font-size:25px;color:#4f46e5;font-weight:bold}
+.badge{
+    display:inline-block;padding:6px 12px;
+    background:#dcfce7;color:#15803d;border-radius:20px
+}
+button{
+    padding:10px 15px;margin:5px;
+    border:0;border-radius:8px;cursor:pointer
+}
+.status{margin:15px;color:#c4b5fd;font-weight:bold}
+</style>
+</head>
+
+<body>
+<div class="container">
+<h1>💻 Product Effects Lab</h1>
+
+<div id="product">
+<h2>Laptop Pro</h2>
+<div class="price">₹65,000</div>
+<p>Category: Electronics</p>
+<span class="badge">Available</span>
+<p id="details">Powerful laptop designed for professional work and daily productivity.</p>
+</div>
+
+<div>
+<button id="show">Show</button>
+<button id="hide">Hide</button>
+<button id="fade">Fade</button>
+<button id="slide">Slide</button>
+<button id="animate">Animate</button>
+<button id="stop">Stop</button>
+<button id="callback">Callback</button>
+<button id="chain">Chaining</button>
+</div>
+
+<div class="status" id="msg"></div>
+</div>
+
+<script>
+$("#show").click(()=>$("#product").show());
+$("#hide").click(()=>$("#product").hide());
+$("#fade").click(()=>$("#product").fadeToggle(500));
+$("#slide").click(()=>$("#details").slideToggle(500));
+
+$("#animate").click(()=>{
+    $("#product").animate({width:"520px",marginTop:"50px"},700);
+});
+
+$("#stop").click(()=>$("#product").stop());
+
+$("#callback").click(()=>{
+    $("#product").fadeOut(500,function(){
+        $("#msg").text("✓ Animation completed successfully");
+        $("#product").fadeIn(500);
+    });
+});
+
+$("#chain").click(()=>{
+    $("#product").slideUp(400).slideDown(400)
+                 .fadeOut(400).fadeIn(400);
+});
+</script>
+</body>
+</html>
+
+5) Employee Management
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Dashboard</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+*{box-sizing:border-box}
+body{
+    margin:0;font-family:Arial;
+    background:linear-gradient(135deg,#eef2ff,#dbeafe);
+    color:#172554
+}
+.dashboard{
+    width:850px;margin:35px auto;background:white;
+    padding:25px;border-radius:20px;
+    box-shadow:0 20px 50px #0002
+}
+header{
+    background:linear-gradient(90deg,#1e1b4b,#4f46e5);
+    color:white;padding:20px;border-radius:15px
+}
+.form{
+    display:flex;gap:8px;margin:20px 0
+}
+input{
+    padding:11px;border:1px solid #cbd5e1;
+    border-radius:7px;flex:1
+}
+button{
+    padding:10px 15px;border:0;border-radius:7px;
+    background:#4f46e5;color:white;cursor:pointer
+}
+table{
+    width:100%;border-collapse:collapse;
+    overflow:hidden;border-radius:10px
+}
+th{background:#1e1b4b;color:white;padding:12px}
+td{padding:11px;border-bottom:1px solid #e2e8f0}
+tr.selected{background:#ddd6fe;font-weight:bold}
+.actions button{background:#0f766e}
+#status{
+    margin-top:15px;padding:10px;
+    background:#f1f5f9;border-radius:8px
+}
+</style>
+</head>
+
+<body>
+<div class="dashboard">
+
+<header>
+<h1>Employee Management</h1>
+<p>HR Organization Dashboard</p>
+</header>
+
+<div class="form">
+<input id="id" placeholder="Employee ID">
+<input id="name" placeholder="Employee Name">
+<input id="dept" placeholder="Department">
+<button id="add">Add</button>
+<button id="update">Update</button>
+</div>
+
+<table id="empTable">
+<thead>
+<tr><th>ID</th><th>Name</th><th>Department</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>101</td><td>Riya</td><td>HR</td><td><button class="remove">Remove</button></td></tr>
+<tr><td>102</td><td>Arjun</td><td>IT</td><td><button class="remove">Remove</button></td></tr>
+<tr><td>103</td><td>Meera</td><td>Finance</td><td><button class="remove">Remove</button></td></tr>
+</tbody>
+</table>
+
+<br>
+<button id="dimension">Show Table Dimensions</button>
+<button id="style">Change Panel</button>
+
+<div id="status">Select an employee to load details.</div>
+</div>
+
+<script>
+let selected;
+
+$("#empTable tbody").on("click","tr",function(){
+    selected=$(this).addClass("selected").siblings().removeClass("selected");
+    $("#id").val(selected.children().eq(0).text());
+    $("#name").val(selected.children().eq(1).text());
+    $("#dept").val(selected.children().eq(2).text());
+    $("#status").text("Selected employee details loaded.");
+});
+
+$("#add").click(function(){
+    $("#empTable tbody").append(
+      `<tr><td>${$("#id").val()}</td><td>${$("#name").val()}</td>
+       <td>${$("#dept").val()}</td><td><button class="remove">Remove</button></td></tr>`
+    );
+    $("#status").text("Employee added successfully.");
+});
+
+$("#update").click(function(){
+    if(selected){
+        selected.children().eq(0).text($("#id").val());
+        selected.children().eq(1).text($("#name").val());
+        selected.children().eq(2).text($("#dept").val());
+        $("#status").text("Employee updated successfully.");
+    }
+});
+
+$("#empTable").on("click",".remove",function(e){
+    e.stopPropagation();
+    $(this).closest("tr").remove();
+    $("#status").text("Employee removed successfully.");
+});
+
+$("#dimension").click(function(){
+    $("#status").text(
+      "Table Width: "+$("#empTable").width()+
+      "px | Height: "+$("#empTable").height()+"px"
+    );
+});
+
+$("#style").click(function(){
+    $("#status").css({
+        background:"#4f46e5",
+        color:"white",
+        transition:"0.3s"
+    });
+});
+</script>
+</body>
+</html>
+
+6) jQuery Traversing
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Organization Explorer</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+*{box-sizing:border-box}
+body{
+    margin:0;font-family:Arial;
+    background:linear-gradient(135deg,#111827,#312e81);
+    color:white
+}
+.app{width:900px;margin:35px auto}
+header{
+    padding:22px;background:#ffffff12;
+    border:1px solid #ffffff20;border-radius:18px;
+    backdrop-filter:blur(10px)
+}
+.project{
+    margin-top:20px;padding:20px;
+    background:#ffffff10;border-radius:15px
+}
+.team{
+    display:inline-block;vertical-align:top;
+    width:46%;margin:1.5%;padding:15px;
+    background:white;color:#172033;
+    border-radius:14px
+}
+.employee{
+    padding:10px;margin:7px 0;
+    background:#eef2ff;border-radius:8px;
+    cursor:pointer
+}
+.employee:hover,.active{
+    background:#c4b5fd;font-weight:bold
+}
+button{
+    padding:9px 13px;margin:5px;
+    border:0;border-radius:7px;
+    background:#8b5cf6;color:white;cursor:pointer
+}
+#result{
+    margin-top:15px;padding:15px;
+    background:#ffffff12;border-radius:12px;
+    min-height:45px
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<header>
+<h1>Organization Explorer</h1>
+<p>Interactive Employee Traversing Dashboard</p>
+</header>
+
+<div class="project" id="project">
+<h2>Project Alpha</h2>
+
+<div class="team">
+<h3>Development Team</h3>
+<div class="employee" data-senior="no">Arun - Developer</div>
+<div class="employee" data-senior="yes">Kavya - Senior Developer</div>
+<div class="employee" data-senior="no">Rahul - Developer</div>
+</div>
+
+<div class="team">
+<h3>Testing Team</h3>
+<div class="employee" data-senior="no">Meena - Tester</div>
+<div class="employee" data-senior="yes">Priya - Senior Tester</div>
+<div class="employee" data-senior="no">Karthik - Tester</div>
+</div>
+</div>
+
+<div>
+<button id="select">Select Employee</button>
+<button id="parent">Show Parent Team</button>
+<button id="ancestors">Show All Ancestors</button>
+<button id="desc">Show Project Employees</button>
+<button id="siblings">Show Teammates</button>
+<button id="senior">Show Senior Employees</button>
+<button id="reset">Reset</button>
+</div>
+
+<div id="result">Click an employee to begin.</div>
+</div>
+
+<script>
+let emp;
+
+$(".employee").click(function(){
+    emp=$(this);
+    $(".employee").removeClass("active");
+    emp.addClass("active");
+    $("#result").text("Selected Employee: "+emp.text());
+});
+
+$("#select").click(()=>$("#result").text("Selected Employee: "+(emp?emp.text():"None")));
+
+$("#parent").click(function(){
+    $(".team").css("outline","none");
+    if(emp){
+        emp.parent().css("outline","3px solid #a78bfa");
+        $("#result").text("Parent Team: "+emp.parent().children("h3").text());
+    }
+});
+
+$("#ancestors").click(function(){
+    if(emp){
+        emp.parents(".team,.project").css("outline","3px solid #22d3ee");
+        $("#result").text("Ancestors highlighted: Team and Project Alpha");
+    }
+});
+
+$("#desc").click(function(){
+    $(".employee").removeClass("active");
+    $("#project").find(".employee").addClass("active");
+    $("#result").text("All employees in Project Alpha highlighted.");
+});
+
+$("#siblings").click(function(){
+    $(".employee").removeClass("active");
+    if(emp){
+        emp.siblings(".employee").addClass("active");
+        $("#result").text("Teammates highlighted.");
+    }
+});
+
+$("#senior").click(function(){
+    $(".employee").removeClass("active");
+    $(".employee").filter("[data-senior='yes']").addClass("active");
+    $("#result").text("Senior employees highlighted: Kavya and Priya");
+});
+
+$("#reset").click(function(){
+    $(".employee,.team,.project").removeClass("active").css("outline","none");
+    $("#result").text("View reset successfully.");
+});
+</script>
+</body>
+</html>
+
