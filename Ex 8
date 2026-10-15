@@ -1,0 +1,979 @@
+1) Navbar.jsx
+
+function Navbar({ darkMode, setDarkMode }) {
+  return (
+    <nav className="navbar">
+      <h2>EduDashboard URK24CS1166</h2>
+
+      <div className="nav-links">
+        <a href="#home">Home</a>
+        <a href="#courses">Courses</a>
+        <a href="#tasks">Tasks</a>
+      </div>
+
+      <button
+        className="profile-btn"
+        onClick={() => setDarkMode(!darkMode)}
+      >
+        {darkMode ? "Light Mode" : "Dark Mode"}
+      </button>
+    </nav>
+  );
+}
+
+export default Navbar;
+
+2) StatCard.jsx
+
+function StatCard({ title, value }) {
+  return (
+    <div className="card">
+      <h3>{title}</h3>
+      <p>{value}</p>
+    </div>
+  );
+}
+
+export default StatCard;
+
+3) App.css
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6fc;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  background: #f4f6fc;
+  color: #20243a;
+  transition: background 0.3s, color 0.3s;
+}
+
+.topbar {
+  height: 80px;
+  padding: 0 30px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 2px 12px #1725540d;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  color: #5145cd;
+  font-size: 23px;
+  white-space: nowrap;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  background: #f4f5fb;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.search-box span {
+  font-size: 22px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  min-width: 0;
+}
+
+.notification,
+.theme-btn,
+.menu-toggle {
+  border: none;
+  background: transparent;
+  font-size: 21px;
+  position: relative;
+  padding: 5px;
+}
+
+.notification-count {
+  position: absolute;
+  top: -5px;
+  right: -7px;
+  background: #ef4444;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  min-width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.profile img,
+.avatar-fallback {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-fallback {
+  display: grid;
+  place-items: center;
+  color: white;
+  background: #5145cd;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.layout {
+  display: flex;
+  min-height: calc(100vh - 80px);
+}
+
+.sidebar {
+  width: 245px;
+  flex-shrink: 0;
+  background: white;
+  padding: 30px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.side-title {
+  color: #999db0;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  padding: 0 14px 12px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #60657c;
+  padding: 14px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background: #efedff;
+  color: #5145cd;
+  transform: translateX(3px);
+}
+
+.sidebar-note {
+  margin-top: auto;
+  background: #efedff;
+  padding: 18px;
+  border-radius: 14px;
+  line-height: 1.6;
+}
+
+.sidebar-note h3 {
+  color: #5145cd;
+  margin-bottom: 8px;
+}
+
+.sidebar-note p {
+  color: #68658a;
+  font-size: 13px;
+}
+
+.dashboard {
+  flex: 1;
+  min-width: 0;
+  padding: 35px;
+}
+
+.welcome {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  color: #5145cd;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.welcome h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.welcome > p:last-child {
+  color: #85899e;
+  line-height: 1.6;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  padding: 22px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px #17255408;
+  transition: transform 0.25s;
+}
+
+.stat-card:hover,
+.course-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-card > span {
+  font-size: 25px;
+}
+
+.stat-card p {
+  margin: 15px 0 8px;
+  color: #777c91;
+  font-size: 14px;
+}
+
+.stat-card h2 {
+  font-size: 28px;
+}
+
+.purple {
+  border-bottom: 4px solid #8173ee;
+}
+
+.blue {
+  border-bottom: 4px solid #58a4f5;
+}
+
+.green {
+  border-bottom: 4px solid #3fc69a;
+}
+
+.orange {
+  border-bottom: 4px solid #f3a451;
+}
+
+.panel {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  margin-bottom: 28px;
+  box-shadow: 0 5px 20px #17255408;
+  scroll-margin-top: 100px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  font-size: 21px;
+  margin-bottom: 8px;
+}
+
+.section-heading p {
+  color: #85899e;
+  font-size: 14px;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.course-card {
+  padding: 22px;
+  border: 1px solid #eceef5;
+  border-radius: 13px;
+  transition: transform 0.25s;
+}
+
+.course-icon {
+  font-size: 26px;
+  margin-bottom: 14px;
+}
+
+.course-card h3 {
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: #85899e;
+}
+
+.progress-info strong {
+  color: #5145cd;
+}
+
+.progress-track {
+  width: 100%;
+  height: 9px;
+  border-radius: 10px;
+  background: #ecebfa;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #5145cd, #988cf7);
+  transition: width 0.4s;
+}
+
+.task-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.task-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid #dfe1ec;
+  border-radius: 9px;
+  outline: none;
+}
+
+.task-form input:focus {
+  border-color: #5145cd;
+}
+
+.task-form button {
+  border: none;
+  background: #5145cd;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 9px;
+}
+
+.task-form button:hover {
+  background: #3e34a7;
+}
+
+.task-list {
+  display: grid;
+  gap: 12px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid #eceef5;
+  border-radius: 10px;
+}
+
+.task-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.task-label input {
+  width: 17px;
+  height: 17px;
+  accent-color: #5145cd;
+  flex-shrink: 0;
+}
+
+.task-done {
+  color: #999db0;
+  text-decoration: line-through;
+}
+
+.delete-btn {
+  border: none;
+  background: #fff0f0;
+  padding: 9px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.delete-btn:hover {
+  background: #ffdada;
+}
+
+.empty-message {
+  color: #85899e;
+  padding: 15px 0;
+}
+
+footer {
+  text-align: center;
+  color: #85899e;
+  font-size: 13px;
+  padding: 10px 0 25px;
+}
+
+.overlay {
+  display: none;
+}
+
+/* DARK MODE */
+.dark {
+  background: #111827;
+  color: #f3f4f6;
+}
+
+.dark .topbar,
+.dark .sidebar,
+.dark .panel,
+.dark .stat-card {
+  background: #1f2937;
+}
+
+.dark .search-box,
+.dark .task-form input {
+  background: #111827;
+  color: white;
+}
+
+.dark .search-box input,
+.dark .task-form input {
+  color: white;
+}
+
+.dark .sidebar a,
+.dark .profile,
+.dark .course-card h3,
+.dark .task-label {
+  color: #e5e7eb;
+}
+
+.dark .sidebar a:hover,
+.dark .sidebar-note {
+  background: #312e58;
+}
+
+.dark .sidebar-note p,
+.dark .sidebar-note h3 {
+  color: #ddd6fe;
+}
+
+.dark .course-card,
+.dark .task-item {
+  border-color: #374151;
+}
+
+.dark .progress-track {
+  background: #374151;
+}
+
+/* TABLET */
+@media (max-width: 1100px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .search-box {
+    width: 230px;
+  }
+
+  .dashboard {
+    padding: 25px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .topbar {
+    height: auto;
+    min-height: 70px;
+    padding: 14px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .logo {
+    font-size: 19px;
+    margin-right: auto;
+  }
+
+  .top-actions {
+    gap: 10px;
+  }
+
+  .search-box {
+    order: 5;
+    width: 100%;
+  }
+
+  .topbar {
+    justify-content: flex-start;
+  }
+
+  .top-actions {
+    display: contents;
+  }
+
+  .search-box {
+    flex-basis: 100%;
+  }
+
+  .profile span {
+    display: none;
+  }
+
+  .profile img,
+  .avatar-fallback {
+    width: 34px;
+    height: 34px;
+  }
+
+  .layout {
+    min-height: calc(100vh - 120px);
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 30;
+    width: 260px;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    overflow-y: auto;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: #0008;
+    border: none;
+    z-index: 20;
+  }
+
+  .dashboard {
+    width: 100%;
+    padding: 22px 15px;
+  }
+
+  .welcome h1 {
+    font-size: 25px;
+  }
+
+  .stats {
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 16px;
+  }
+
+  .stat-card h2 {
+    font-size: 24px;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .task-form {
+    flex-direction: column;
+  }
+
+  .task-form button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .logo {
+    font-size: 17px;
+  }
+}
+
+4) App.jsx
+
+
+import { useState } from "react";
+import "./App.css";
+
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const [task, setTask] = useState("");
+  const [imageError, setImageError] = useState(false);
+
+  const [tasks, setTasks] = useState([
+    { id: 1, text: "Complete React assignment", done: false },
+    { id: 2, text: "Study database management", done: true },
+  ]);
+
+  const courses = [
+    { name: "Web Technology", progress: 80 },
+    { name: "Database Management", progress: 65 },
+    { name: "Machine Learning", progress: 45 },
+    { name: "Computer Networks", progress: 90 },
+  ];
+
+  const filteredCourses = courses.filter((course) =>
+    course.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const filteredTasks = tasks.filter((item) =>
+    item.text.toLowerCase().includes(search.toLowerCase())
+  );
+
+  function addTask() {
+    if (task.trim() !== "") {
+      setTasks([
+        ...tasks,
+        {
+          id: Date.now(),
+          text: task.trim(),
+          done: false,
+        },
+      ]);
+      setTask("");
+    }
+  }
+
+  function toggleTask(id) {
+    setTasks(
+      tasks.map((item) =>
+        item.id === id
+          ? { ...item, done: !item.done }
+          : item
+      )
+    );
+  }
+
+  function deleteTask(id) {
+    setTasks(tasks.filter((item) => item.id !== id));
+  }
+
+  const pendingTasks = tasks.filter((item) => !item.done).length;
+  const completedTasks = tasks.filter((item) => item.done).length;
+
+  return (
+    <div className={darkMode ? "app dark" : "app"}>
+      <header className="topbar">
+        <button
+          className="menu-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation menu"
+        >
+          ☰
+        </button>
+
+        <h2 className="logo">EduDashboard URK24CS1166</h2>
+
+        <div className="top-actions">
+          <div className="search-box">
+            <span>⌕</span>
+            <input
+              type="search"
+              placeholder="Search courses or tasks..."
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+            />
+          </div>
+
+          <button
+            className="notification"
+            title={`${pendingTasks} pending tasks`}
+            aria-label={`${pendingTasks} pending tasks`}
+          >
+            🔔
+            {pendingTasks > 0 && (
+              <span className="notification-count">
+                {pendingTasks}
+              </span>
+            )}
+          </button>
+
+          <button
+            className="theme-btn"
+            onClick={() => setDarkMode(!darkMode)}
+          >
+            {darkMode ? "☀️" : "🌙"}
+          </button>
+
+          <div className="profile">
+            {imageError ? (
+              <div className="avatar-fallback">ST</div>
+            ) : (
+              <img
+                src="/images/profile.jpg"
+                alt="Student profile"
+                onError={() => setImageError(true)}
+              />
+            )}
+            <span>Student</span>
+          </div>
+        </div>
+      </header>
+
+      <div className="layout">
+        <aside className={`sidebar ${menuOpen ? "open" : ""}`}>
+          <p className="side-title">MENU</p>
+          <a href="#home" onClick={() => setMenuOpen(false)}>🏠 Home</a>
+          <a href="#courses" onClick={() => setMenuOpen(false)}>📚 My Courses</a>
+          <a href="#progress" onClick={() => setMenuOpen(false)}>📊 Progress</a>
+          <a href="#tasks" onClick={() => setMenuOpen(false)}>✅ My Tasks</a>
+          <a href="#profile" onClick={() => setMenuOpen(false)}>👤 Profile</a>
+
+          <div className="sidebar-note">
+            <h3>Keep Learning!</h3>
+            <p>Small steps every day lead to big results.</p>
+          </div>
+        </aside>
+
+        {menuOpen && (
+          <button
+            className="overlay"
+            aria-label="Close navigation menu"
+            onClick={() => setMenuOpen(false)}
+          />
+        )}
+
+        <main className="dashboard">
+          <section className="welcome" id="home">
+            <p className="eyebrow">STUDENT OVERVIEW</p>
+            <h1>Welcome Back! URK24CS1166</h1>
+            <p>Track your courses, progress, and daily tasks.</p>
+          </section>
+
+          <section className="stats">
+            <div className="stat-card purple">
+              <span>📚</span>
+              <p>Total Courses</p>
+              <h2>4</h2>
+            </div>
+
+            <div className="stat-card blue">
+              <span>📝</span>
+              <p>Total Tasks</p>
+              <h2>{tasks.length}</h2>
+            </div>
+
+            <div className="stat-card green">
+              <span>✅</span>
+              <p>Completed Tasks</p>
+              <h2>{completedTasks}</h2>
+            </div>
+
+            <div className="stat-card orange">
+              <span>⏳</span>
+              <p>Pending Tasks</p>
+              <h2>{pendingTasks}</h2>
+            </div>
+          </section>
+
+          <section className="panel" id="courses">
+            <div className="section-heading">
+              <div>
+                <h2>My Courses</h2>
+                <p>Monitor your course completion.</p>
+              </div>
+            </div>
+
+            <div className="course-grid">
+              {filteredCourses.map((course) => (
+                <div className="course-card" key={course.name}>
+                  <div className="course-icon">📘</div>
+                  <h3>{course.name}</h3>
+
+                  <div className="progress-info">
+                    <span>Course Progress</span>
+                    <strong>{course.progress}%</strong>
+                  </div>
+
+                  <div
+                    className="progress-track"
+                    role="progressbar"
+                    aria-label={`${course.name} completion`}
+                    aria-valuenow={course.progress}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                  >
+                    <div
+                      className="progress-fill"
+                      style={{ width: `${course.progress}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {filteredCourses.length === 0 && (
+              <p className="empty-message">No matching courses found.</p>
+            )}
+          </section>
+
+          <section className="panel task-panel" id="tasks">
+            <div className="section-heading">
+              <div>
+                <h2>My Tasks</h2>
+                <p>Manage your daily activities.</p>
+              </div>
+            </div>
+
+            <div className="task-form">
+              <input
+                type="text"
+                placeholder="Enter a new task..."
+                value={task}
+                onChange={(event) => setTask(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") addTask();
+                }}
+              />
+              <button onClick={addTask}>+ Add Task</button>
+            </div>
+
+            <div className="task-list">
+              {filteredTasks.map((item) => (
+                <div className="task-item" key={item.id}>
+                  <label className="task-label">
+                    <input
+                      type="checkbox"
+                      checked={item.done}
+                      onChange={() => toggleTask(item.id)}
+                    />
+                    <span className={item.done ? "task-done" : ""}>
+                      {item.text}
+                    </span>
+                  </label>
+
+                  <button
+                    className="delete-btn"
+                    onClick={() => deleteTask(item.id)}
+                    aria-label={`Delete ${item.text}`}
+                    title="Delete task"
+                  >
+                    🗑️
+                  </button>
+                </div>
+              ))}
+
+              {filteredTasks.length === 0 && (
+                <p className="empty-message">No matching tasks found.</p>
+              )}
+            </div>
+          </section>
+
+          <footer id="progress">
+            EduDashboard · Learn, improve, and achieve.
+          </footer>
+        </main>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+5) index.css
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: Arial, sans-serif;
+}
+
+6) main.jsx
+
+
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+
